@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amol Sharma's Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Styles */
+        @keyframes neeche {
+            from {
+                overflow-y: hidden;
+            }
+            to {
+                overflow-y: visible;
+            }
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            transition: background-color 0.5s, color 0.5s;
+            position: relative;
+            overflow-x: hidden;
+            animation: neeche 6s linear 1 normal forwards;
+        }
+        .container {
+            width: 90%;
+            margin: auto;
+        }
+        /* Navbar Styles */
+        .naam {
+            height: 10vh;
+        }
+        .navbar {
+            background-color: #333;
+            color: #fff;
+            height: 10vh;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .navbar-brand {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+        }
+        .navbar-brand:hover {
+            color: gray;
+        }
+        .navbar-nav {
+            height: 10vh;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: right;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 25px;
+            font-weight: 400;
+        }
+        .nav-item {
+            display: inline-block;
+            margin-left: 20px;
+        }
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .nav-link:hover {
+            color: #eae307;
+        }
+        /* Hero Section Styles */
+        .bgimage {
+            height: 100vh;
+            background-color: #222;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+        }
+        .hero_title {
+            font-size: 5rem;
+            color: #eae307;
+            opacity: 1;
+            z-index: 2;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 3px solid;
+            animation: typing 4s steps(30, end), blink-caret 0.75s step-end infinite;
+        }
+        .hero_desc {
+            font-size: 3rem;
+            color: #eae307;
+        }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #eae307 }
+        }
+        /* About Section Styles */
+        #about {
+            background-color: #fff;
+            padding: 4rem 0;
+        }
+        .imageAboutPage {
+            width: 100%;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        /* Services Section Styles */
+        #services {
+            padding: 4rem 0;
+            background-color: #f9f9f9;
+        }
+        .servicesText {
+            height: 380px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+            transition: border-color 0.3s ease;
+        }
+        .servicesText:hover {
+            border-color: #008000;
+        }
+        .servicesIcon {
+            font-size: 36px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .card-title {
+            text-align: center;
+            margin-top: 20px;
+        }
+        /* Portfolio Section Styles */
+        #portfolio {
+            padding: 4rem 0;
+            background-color: #fff;
+        }
+        .portfolioContent {
+            margin-bottom: 30px;
+        }
+        .portfolioContent img {
+            width: 100%;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        /* Contact Section Styles */
+        #contact {
+            padding: 4rem 0;
+            background-color: #f9f9f9;
+        }
+        .contactContent {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        /* Footer Styles */
+        #footer {
+            background-color: #808080;
+            color: #fff;
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+        }
+        .social-icons a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        .social-icons a:hover {
+            color: #008000;
+        }
+        .current-time {
+            position: absolute;
+            bottom: 10px;
+            right: 20px;
+            font-size: 20px;
+            opacity: 0.7;
+        }
+        @keyframes dikha {
+            from {
+                filter: blur(10px);
+            }
+            to {
+                filter: blur(0px);
+                z-index: 1;
+            }
+        }
+        .main {
+            position: absolute;
+            top: 0px;
+            width: 100vw;
+            z-index: -1;
+            filter: blur(10px);
+            animation: dikha 2s linear 2s 1 normal forwards;
+            transform: translateZ(1);
+        }
+        @keyframes bhagja {
+            from {
+                transform: translateX(100vw);
+            }
+            to {
+                transform: translateX(0vw);
+                display: none;
+            }
+        }
+        @keyframes bhagja2 {
+            from {
+                transform: translateX(-100vw);
+            }
+            to {
+                transform: translateX(0vw);
+                display: none;
+            }
+        }
+        .box1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 100px;
+            font-weight: 900;
+            width: 100vw;
+            height: 25vh;
+            background-color: #FF8C00;
+            animation: bhagja 2s linear 1s 1 reverse forwards;
+        }
+        .box2 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 100px;
+            font-weight: 900;
+            width: 100vw;
+            height: 25vh;
+            background-color: #f9f9f9;
+            animation: bhagja2 2s linear 1s 1 reverse forwards;
+        }
+        .box3 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 100px;
+            font-weight: 900;
+            width: 100vw;
+            height: 25vh;
+            background-color: #f9f9f9;
+            animation: bhagja 2s linear 1s 1 reverse forwards;
+        }
+        .box4 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 100px;
+            font-weight: 900;
+            width: 100vw;
+            height: 25vh;
+            background-color: #008000;
+            animation: bhagja2 2s linear 1s 1 reverse forwards;
+        }
+        .naam {
+            display: flex;
+            gap: 10px;
+        }
+        .hidekaar {
+            z-index: -1;
+        }
+        @keyframes show {
+            from {
+                z-index: -1;
+            }
+            to {
+                z-index: 2;
+            }
+        }
+        .naam:hover .hidekaar {
+            animation: show 2s linear 1 normal both;
+        }
+        .night {
+            display: flex;
+            gap: 10px;
+            height: 100px;
+            justify-content: center;
+            align-items: flex-end;
+        }
+        .din img {
+            height: 50px;
+        }
+        .raat img {
+            height: 45px;
+        }
+        .din img:hover {
+            height: 55px;
+            cursor: pointer;
+        }
+        .raat img:hover {
+            height: 50px;
+            cursor: pointer;
+        }
+        .row {
+            margin: 0px;
+            display: flex;
+            gap: 10px;
+            padding: 0px;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 5fr;
+        }
+        .services {
+            background-color: #f9f9f9;
+           padding: 4rem 0;
+        }
+
+        .services ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .services li {
+            width: 150px;
+            height: 150px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+        }
+        .services li:hover{
+            background-color: black;
+            color: white;
+            font-weight: 900;
+            font-size: 20px;
+    </style>
+</head>
+<body>
+    <div class="anime">
+        <div class="box1"><i>A</i></div>
+        <div class="box2"><i>M</i></div>
+        <div class="box3">O</div>
+        <div class="box4"><i>L</i></div>
+    </div>
+    <div class="main">
+        <nav class="navbar">
+            <div class="container">
+                <div class="naam">
+                    <h1 class="navbar-brand">Amol</h1>
+                    <h1 class="navbar-brand hidekaar"> Sharma</h1>
+                </div>
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portfolio">Certification</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+        <section class="bgimage" id="home">
+            <div>
+                <h2 class="hero_title"></h2>
+                <p class="hero_desc">I am a professional freelancer in India</p>
+            </div>
+        </section>
+        <section id="about">
+            <div class="container">
+                <h1 class="text-center">About Me</h1>
+                <div class="row mt-4">
+                    <div class="col-lg-4">
+                        <img style="margin-right: 20px; margin-top:20px;" src="./WhatsApp Image 2024-02-04 at 5.56.25 PM.jpeg" class="imageAboutPage" alt="Amol Sharma Image">
+                    </div>
+                    <div class="col-lg-8">
+                        <p>Welcome to my corner of the digital world! I am Amol Sharma, a passionate Computer Science student on a journey of constant learning and exploration. Currently pursuing my degree, I thrive on the challenges and opportunities that the ever-evolving field of technology offers.
+
+I have a deep-rooted curiosity that drives me to learn something new every day, be it coding in diverse languages, exploring cutting-edge technologies, or mastering the intricacies of various skills within the vast realm of computer science.
+
+With an open mindset and a commitment to continuous improvement, I am dedicated to expanding my knowledge and staying at the forefront of the dynamic tech landscape. Whether it's diving into the world of artificial intelligence, web development, or any other exciting area, I am always up for the challenge.
+
+My portfolio is a reflection of my journey, showcasing the projects and experiences that shape my growth. Join me as I embark on this thrilling adventure, leveraging technology to make a positive impact and pushing the boundaries of what is possible.
+
+Let's code the future together!
+
+Best regards,
+Amol Sharma</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="services">
+            <div class="container">
+                <h1 style="font-size: 25px;" class="text-center">Skills</h1>
+            </div>
+            <div class="div">
+                <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JS</li>
+                    <li>CPP</li>
+                    <li>PYTHON</li>
+                    <li>C LANGUAGE</li>
+                    
+                </ul>
+            </div>
+        </div>
+        <section id="portfolio">
+            <div class="container">
+                <h1 class="text-center">Certification</h1>
+            </div>
+        </section>
+        <!-- Contact Section Styles -->
+<section id="contact">
+    <div class="container">
+        <h1 class="text-center">Contact Me</h1>
+    </div>
+    <div class="contactContent container">
+        <div class="contact-details">
+            <h3>Email:</h3>
+            <p>amol1254.be22@chitkara.edu.in</p>
+            <h3>Phone:</h3>
+            <p>9119119119</p>
+        </div>
+        <div class="contact-form">
+            <!-- Your contact form elements go here -->
+        </div>
+    </div>
+</section>
+
+        <div id="support-bot" style="position: fixed; bottom: 20px; right: 20px; z-index: 999;">
+            <button onclick="toggleBot()">Support</button>
+            <div id="bot-container" style="display: none;">
+                <div id="chat-container" style="height: 300px; overflow-y: scroll; border: 1px solid #ccc; padding: 10px;"></div>
+                <input type="text" id="user-input" placeholder="Type your message...">
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+        <footer id="footer">
+            <div class="container">
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitch"></i></a>
+                </div>
+                <div class="current-time" id="current-time"></div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function displayTime() {
+            const now = new Date();
+            const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            const day = days[now.getDay()];
+            const date = now.toLocaleDateString();
+            const time = now.toLocaleTimeString();
+            const currentTime = `${day}, ${date}, ${time}`;
+            document.getElementById('current-time').textContent = currentTime;
+        }
+        displayTime();
+        setInterval(displayTime, 1000);
+
+        const words = ["Hey,", "it's", "me", "Amol", "Sharma"];
+        let index = 0;
+        let letterIndex = 0;
+        const titleElement = document.querySelector('.hero_title');
+
+        function typeText() {
+            if (index < words.length) {
+                const word = words[index];
+                titleElement.textContent += word[letterIndex];
+                letterIndex++;
+                if (letterIndex === word.length) {
+                    index++;
+                    letterIndex = 0;
+                    titleElement.textContent += " ";
+                }
+                setTimeout(typeText, 200);
+            }
+        }
+
+        setTimeout(typeText, 1000);
+
+        function toggleBot() {
+            var botContainer = document.getElementById('bot-container');
+            botContainer.style.display = botContainer.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function sendMessage() {
+            var userInput = document.getElementById('user-input').value;
+            var chatContainer = document.getElementById('chat-container');
+            chatContainer.innerHTML += '<p><strong>User:</strong> ' + userInput + '</p>';
+            document.getElementById('user-input').value = '';
+        }
+    </script>
+</body>
+</html>
